@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Cast from '../src/components/Cast';
 import './MovieDetail.css';
+import { change_title } from '../src/func/change_title';
 
 const MovieDetail = () => {
+  
   let [movie, setMovie] = useState({})
   // console.log(useParams());
   let { id } = useParams();
@@ -20,6 +22,8 @@ const MovieDetail = () => {
   useEffect( () => 
         getMovie()
     ,[]);
+
+  change_title(`${movie.title} 영화 상세 보기`);
   return (
     <>
       <h2>{movie.title}</h2>
@@ -29,7 +33,8 @@ const MovieDetail = () => {
         <div>평점 : {movie.rating}</div>
         <ul className="cast-container">
           {Array.isArray(movie.cast) ? movie.cast.map((ch, index) => 
-            <Cast coverImage={ch.url_small_image} 
+            <Cast key={index}
+                  coverImage={ch.url_small_image} 
                   name={ch.name}
                   characterName={ch.character_name}
                   />

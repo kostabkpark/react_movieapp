@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes } from "react-router-dom";
 import "./App.css";
 // import Home from "../router/Home";
 // import Detail from "../router/Detail";
@@ -11,13 +11,11 @@ import MovieDetail from "../router/MovieDetail";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Link className="link" to="/">MovieHome</Link>
-        <Routes>
-          <Route path="/" element={<MovieHome />} />
-          <Route path="/detailMovie/:id" element={<MovieDetail />} />
-        </Routes>
-      </BrowserRouter>
+      <Link className="link" to="/">MovieHome</Link>
+      <Routes>
+        <Route path="/" element={<MovieHome />} />
+        <Route path="/detailMovie/:id" element={<MovieDetail />} />
+      </Routes>
     </>
   );
 }

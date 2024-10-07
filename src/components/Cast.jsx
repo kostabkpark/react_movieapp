@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './Cast.css';
 
 function Cast({coverImage, name, characterName}){  //
